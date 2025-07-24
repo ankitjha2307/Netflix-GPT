@@ -1,4 +1,8 @@
 /* General Container */
+* {
+  margin: 0px;
+}
+
 .login-container {
   position: relative;
   height: 100vh;
@@ -24,7 +28,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  background: rgba(0, 0, 0, 0.3); /* dark overlay */
 }
 
 .background-img img {
@@ -38,15 +42,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100%; */
-  padding-top: 90px;
+  height: 65%;
 }
 
 .login-form {
-  background-color: rgba(0, 0, 0, 0.75);
-  padding: 60px 68px 40px;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 50px 68px 40px;
   color: white;
-  width: 250px;
+  width: 350px;
   border-radius: 4px;
 }
 
@@ -78,10 +81,29 @@
   cursor: pointer;
 }
 
-.signup-now {
-  margin-top: 10px;
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  /* margin-top: 12px; */
   font-size: 14px;
   color: #b3b3b3;
+}
+
+.form-options a {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+
+.signup-now {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.signup-now a {
+  color: white;
+  text-decoration: none;
 }
 
 .logo > img {
@@ -91,4 +113,13 @@
 
 .logo {
   padding-left: 80px;
+}
+
+.signup-now :hover {
+  cursor: pointer;
+}
+
+.errorMessege {
+  color: red;
+  font-weight: bold;
 }
