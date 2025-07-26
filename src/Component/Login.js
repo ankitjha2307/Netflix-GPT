@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import checkValid from "../Utils/Valid";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Utils/fireBase";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -18,10 +21,29 @@ const Login = () => {
     const messege = checkValid(email.current.value, password.current.value);
 
     setErrorMessege(messege);
-    console.log(messege);
 
-    // console.log(email.current.value);
-    // console.log(password.current.value);
+    if (messege) return;
+
+    if (!isSignIn) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessege(errorCode, errorMessage);
+        });
+    } else {
+    }
   };
 
   return (
@@ -55,9 +77,12 @@ const Login = () => {
           />
           <p className="errorMessege">{errorMessege}</p>
 
-          <button type="submit" onClick={handelButtonClick}>
-            {isSignIn ? "Sign In" : " Sign Up"}
-          </button>
+          <Link to="/browse">
+            {" "}
+            <button type="submit" onClick={handelButtonClick}>
+              {isSignIn ? "Sign In" : " Sign Up"}
+            </button>{" "}
+          </Link>
           <div className="form-options"></div>
           <div className="signup-now">
             <p onClick={toggleSignIn}>

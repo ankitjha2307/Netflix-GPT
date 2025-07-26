@@ -123,3 +123,40 @@
   color: red;
   font-weight: bold;
 }
+
+.Brows-logo {
+  background-color: #171515;
+  display: flex;
+}
+
+.Brows-logo > img {
+  width: 130px;
+}
+
+.user-logo {
+  display: flex;
+
+  padding: 5px;
+  width: 130px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-logo > img {
+  padding: 10px;
+}
+.header-brows {
+  background-color: #171515;
+}
+
+.signOut {
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 8px;
+}
