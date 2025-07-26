@@ -2,8 +2,11 @@ import React from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { USER_LOGO } from "../Utils/Constant";
+import useNowPlayingMovies from "./useNowPlayingMovies";
 
 const Brows = () => {
+  useNowPlayingMovies();
+
   return (
     <div className="header-brows">
       <Header />
